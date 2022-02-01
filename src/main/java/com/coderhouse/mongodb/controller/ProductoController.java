@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class ProductoController {
     ProductoService service;
 
     @GetMapping("")
-    public List<Producto> getProductos() {
+    public List<Producto> getProductos(HttpSession session) {
         logger.info("GET Request getProductos()");
         return this.service.getAllProducts();
     }
